@@ -4,6 +4,8 @@
 
 'use strict';
 var bodyParser = require('body-parser')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 module.exports = function (app) {
 
@@ -12,6 +14,7 @@ module.exports = function (app) {
     extended: true
   }));
   app.use('/api/user', require('./apis/users'));
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|app|assets)/*')

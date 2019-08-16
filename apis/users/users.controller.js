@@ -44,3 +44,30 @@ exports.getSingle = (async (req, res) => {
         res.status(500).send('Something went wrong!!');
     }
 })
+exports.put = (async (req, res) => {
+    try {
+        await Customer.findOneAndUpdate({
+            _id: req.params.id
+        }, req.body);
+        res.status(200).send({
+            success: true,
+            message: 'updated successfully'
+        });
+
+    } catch (err) {
+        res.status(500).send('Something went wrong!!');
+    }
+})
+exports.delete = (async (req, res) => {
+    try {
+        await Customer.findOneAndRemove({
+            _id: req.params.id
+        });
+        res.status(200).send({
+            success: true,
+            message: 'removed successfully'
+        });
+    } catch (err) {
+        res.status(500).send('Something went wrong!!');
+    }
+})
