@@ -1,5 +1,5 @@
 # nodebackend-boilterplate
-This is simple nodejs backend boilterplate with mongodb-mongoose
+This is nodejs backend boilterplate with mongodb-mongoose
 
 Node version 8>
 
